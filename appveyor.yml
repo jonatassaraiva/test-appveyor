@@ -17,13 +17,16 @@ branches:
   only:
   - master
   - /dev-*/
-  configuration: Release
-  deploy:
-    provider: NuGet
-    api_key:
-      secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-    skip_symbols: true
-    artifact: /.*\.nupkg/
-  artifacts:
-    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-    name: Package DLL
+
+configuration: Release
+
+deploy:
+  - provider: NuGet
+  api_key:
+    secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+  skip_symbols: true
+  artifact: /.*\.nupkg/
+
+artifacts:
+  path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+  name: Package DLL

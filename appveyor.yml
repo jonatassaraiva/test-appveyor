@@ -16,6 +16,7 @@ build:
 branches:
   only:
   - master
+  - /dev-*/
   configuration: Release
   deploy:
     - provider: NuGet
@@ -26,7 +27,7 @@ branches:
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
-  - /dev-*/
+
   configuration: Debug
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)

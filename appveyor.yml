@@ -77,14 +77,14 @@
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}-rc'
+    assembly_version: '{version}-beta'
+    assembly_file_version: '{version}-beta'
+    assembly_informational_version: '{version}-beta'
   deploy:
     - provider: NuGet
       api_key:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-      skip_symbols: true
+      skip_symbols: false
       artifact: /.*\.nupkg/
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)

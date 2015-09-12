@@ -13,14 +13,13 @@
     - git config --global credential.helper store
     - git config --global user.email "jonatas.saraiva@gmail.com"
     - git config --global user.name "jonatassaraiva"
-    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-    - git tag -a '{version}' -m "Build master '{version}'"
+    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
+    - git tag -a '$(version)' -m "Build master '$(version)'"
     - git push --tags origin master
   configuration: Release
   build:
     project: src/TestAppveyor.sln
     publish_nuget: true
-    publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
   version: 1.2.0.{build}
@@ -48,7 +47,6 @@
   build:
     project: src/TestAppveyor.sln
     publish_nuget: true
-    publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
   version: 1.2.0.{build}
@@ -71,7 +69,6 @@
   build:
     project: src/TestAppveyor.sln
     publish_nuget: true
-    publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
   version: 1.2.0.{build}

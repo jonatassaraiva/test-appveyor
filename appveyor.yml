@@ -27,8 +27,8 @@ branches:
   - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
 
-    - /dev-.*/
-    configuration: Debug
-    artifacts:
-    - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-      name: Package DLL
+  - /dev-.*/
+  configuration: Debug
+  artifacts:
+  - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL

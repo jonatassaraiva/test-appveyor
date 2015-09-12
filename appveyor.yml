@@ -77,9 +77,9 @@
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'
-    assembly_version: '{version}-beta'
-    assembly_file_version: '{version}-beta'
-    assembly_informational_version: '{version}-beta'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
   deploy:
     - provider: NuGet
       api_key:

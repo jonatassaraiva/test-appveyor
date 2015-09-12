@@ -13,7 +13,7 @@ build:
   include_nuget_references: true
   verbosity: minimal
 
-- # master
+# master
   branches:
       only:
         - master
@@ -28,7 +28,7 @@ build:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
       name: Package DLL
 
-- # dev
+# dev
     branches:
       only:
         - /dev-.*/

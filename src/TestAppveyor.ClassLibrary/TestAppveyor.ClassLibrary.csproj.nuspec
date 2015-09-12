@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
     <metadata>
-        <id>TestAppveyorClassLibrary</id>
+        <id>$id$</id>
         <title>TestAppveyorClassLibrary</title>
         <version>$version$</version>
         <authors>Jonatas Saraiva</authors>

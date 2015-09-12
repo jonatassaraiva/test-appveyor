@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppveyor.ClassLibrary", "TestAppveyor.ClassLibrary\TestAppveyor.ClassLibrary.csproj", "{ACE42E8C-849D-4017-ADD0-F736FA227660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppveyor.ClassLibrary.Tests", "TestAppveyor.ClassLibrary.Tests\TestAppveyor.ClassLibrary.Tests.csproj", "{BD3FF84F-4053-411B-A4CB-8FA48DD82804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACE42E8C-849D-4017-ADD0-F736FA227660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE42E8C-849D-4017-ADD0-F736FA227660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE42E8C-849D-4017-ADD0-F736FA227660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE42E8C-849D-4017-ADD0-F736FA227660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3FF84F-4053-411B-A4CB-8FA48DD82804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3FF84F-4053-411B-A4CB-8FA48DD82804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD3FF84F-4053-411B-A4CB-8FA48DD82804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD3FF84F-4053-411B-A4CB-8FA48DD82804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

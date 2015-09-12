@@ -23,9 +23,9 @@ branches:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
       skip_symbols: true
       artifact: /.*\.nupkg/
-    artifacts:
-      path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-      name: Package DLL
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 
     - /dev-.*/
   configuration: Debug

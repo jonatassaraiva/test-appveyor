@@ -3,7 +3,7 @@
     <metadata>
         <id>$id$</id>
         <title>TestAppveyorClassLibrary</title>
-        <version>$version$-beta</version>
+        <version>$version$</version>
         <authors>Jonatas Saraiva</authors>
         <owners>Jonatas Saraiva</owners>
         <licenseUrl>https://github.com/jonatassaraiva/test-appveyor/blob/master/LICENSE</licenseUrl>

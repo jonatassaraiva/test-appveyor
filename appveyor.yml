@@ -2,7 +2,7 @@
   os: Visual Studio 2015
   platform: Any CPU
   environment:
-    git_access_token: dc59ddd7135047eca96b1fb44d152431067830c4
+    git_access_token: evXWGyNuTCdgz4UEsjP32oduE7MxC6ug6tu0kCM8Ikd5BsYXjsbTi7T9K4AYdCcf
 -
   branches:
     only:
@@ -85,7 +85,7 @@
       api_key:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
       skip_symbols: true
-      artifact: /.src\*\.nupkg/
+      artifact: /.*\.nupkg/
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
       name: Package DLL

@@ -1,5 +1,4 @@
 -
-  version: 1.1.{build}
   os: Visual Studio 2015
   platform: Any CPU
   build:
@@ -13,8 +12,7 @@
   branches:
     only:
       - master
-  before_build:
-  - nuget restore src/TestAppveyor.sln
+  version: 1.0.{build}
   configuration: Release
   deploy:
     - provider: NuGet
@@ -27,6 +25,5 @@
   branches:
     only:
       - /dev-.*/
-  before_build:
-  - nuget restore src/TestAppveyor.sln
+  version: 1.1.{build}
   configuration: Debug

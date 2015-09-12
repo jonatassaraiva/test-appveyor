@@ -11,6 +11,8 @@
     - nuget restore src/TestAppveyor.sln
   on_success:
     - git config --global credential.helper store
+    - git config --global user.email "jonatas.saraiva@gmail.com"
+    - git config --global user.name "jonatassaraiva"
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
     - git tag -a '{version}' -m "Build master '{version}'"
     - git push --tags origin master

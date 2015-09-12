@@ -13,9 +13,9 @@ build:
   include_nuget_references: true
   verbosity: minimal
 
-branches:
-  only:
-    - master
+- branches:
+    only:
+      - master
   configuration: Release
   deploy:
   - provider: NuGet
@@ -27,7 +27,9 @@ branches:
   - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
 
-    - /dev-.*/
+- branches:
+    only:
+      - /dev-.*/
   configuration: Debug
   artifacts:
   - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)

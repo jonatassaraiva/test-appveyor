@@ -1,32 +1,33 @@
-version: 1.0.{build}
-os: Visual Studio 2015
+-
+  os: Visual Studio 2015
+  platform: Any CPU
+  before_build:
+  - nuget restore src/TestAppveyor.sln
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    publish_nuget_symbols: true
+    include_nuget_references: true
+    verbosity: minimal
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 
-platform: Any CPU
+-
+  branches:
+    only:
+      - master
+  version: 1.0.{build}
+  configuration: Release
+  deploy:
+    - provider: NuGet
+      api_key:
+        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+      skip_symbols: true
+      artifact: /.*\.nupkg/
 
-before_build:
-- nuget restore src/TestAppveyor.sln
-
-build:
-  project: src/TestAppveyor.sln
-  publish_nuget: true
-  publish_nuget_symbols: true
-  include_nuget_references: true
-  verbosity: minimal
-
-branches:
-  only:
-  - master
-  - /dev-*/
-
-configuration: Release
-
-deploy:
-  - provider: NuGet
-    api_key:
-      secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-    skip_symbols: true
-    artifact: /.*\.nupkg/
-
-artifacts:
-  path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-  name: Package DLL
+-
+  branches:
+    only:
+      - /dev-.*/
+  configuration: Debug

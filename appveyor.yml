@@ -12,7 +12,7 @@
   on_success:
     - git config --global credential.helper store
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-    - git tag -a 'v{version}' -m 'build {version}'
+    - git tag -a '{version}' -m "Build master '{version}'"
     - git push --tags origin master
   configuration: Release
   build:
@@ -21,7 +21,7 @@
     publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
-  version: 1.2.0.0
+  version: 1.2.0.{version}
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'

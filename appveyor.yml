@@ -7,23 +7,66 @@
     publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
-
 -
   branches:
     only:
       - master
-  version: 1.0.{build}
+  before_build:
+    - nuget restore src/TestAppveyor.sln
   configuration: Release
+  version: 1.1.0.{build}
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
   deploy:
     - provider: NuGet
       api_key:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
       skip_symbols: true
       artifact: /.*\.nupkg/
-
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
+-
+  branches:
+    only:
+      - /fix-.*/
+  before_build:
+    - nuget restore src/TestAppveyor.sln
+  configuration: Debug
+  version: 1.1.1.{build}
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 -
   branches:
     only:
       - /dev-.*/
-  version: 1.1.{build}
+  before_build:
+    - nuget restore src/TestAppveyor.sln
   configuration: Debug
+  version: 1.1.0.{build}
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}-rc'
+  deploy:
+    - provider: NuGet
+      api_key:
+        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+      skip_symbols: true
+      artifact: /.*\.nupkg/
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL

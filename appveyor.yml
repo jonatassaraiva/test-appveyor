@@ -21,7 +21,7 @@
     publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
-  version: 1.2.0.{version}
+  version: 1.2.0.{build}
   assembly_info:
     patch: true
     file: '**\AssemblyInfo.*'

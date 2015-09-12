@@ -1,16 +1,20 @@
 <?xml version="1.0"?>
 <package >
-  <metadata>
-    <id>TestAppveyorClassLibrary</id>
-    <version>1.0.0</version>
-    <authors>jonat</authors>
-    <owners>jonat</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Package description</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright 2015</copyright>
-  </metadata>
+    <metadata>
+        <id>TestAppveyorClassLibrary</id>
+        <title>TestAppveyorClassLibrary</title>
+        <version>$version$</version>
+        <authors>Jonatas Saraiva</authors>
+        <owners>Jonatas Saraiva</owners>
+        <licenseUrl>https://github.com/jonatassaraiva/test-appveyor/</licenseUrl>
+        <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+        <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Package description</description>
+        <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+        <copyright>Copyright 2015</copyright>
+        <files>
+            <file src="..\TestAppveyor.ClassLibrary\bin\Release\TestAppveyor.ClassLibrary.dll" target="lib" />
+        </files>
+    </metadata>
 </package>

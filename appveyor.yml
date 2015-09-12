@@ -2,7 +2,7 @@
   os: Visual Studio 2015
   platform: Any CPU
   environment:
-    git_access_token: evXWGyNuTCdgz4UEsjP32oduE7MxC6ug6tu0kCM8Ikd5BsYXjsbTi7T9K4AYdCcf
+    git_access_token: afIeY3BgOrf78Y5k+TQkXvfwSTIm66R5J4d2dEj/BdbWROkVbqstFgX31vFi4f6J
 -
   branches:
     only:
@@ -14,7 +14,7 @@
     - git config --global user.email "jonatas.saraiva@gmail.com"
     - git config --global user.name "jonatassaraiva"
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
-    - git tag -a '$(version)' -m "Build master '$(version)'"
+    - git tag -a %APPVEYOR_BUILD_VERSION% -m 'Build master '/%APPVEYOR_BUILD_VERSION%
     - git push --tags origin master
   configuration: Release
   build:

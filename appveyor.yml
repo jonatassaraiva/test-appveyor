@@ -15,7 +15,7 @@
     - git config --global user.email "jonatas.saraiva@gmail.com"
     - git config --global user.name "jonatassaraiva"
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
-    - git tag -a %version% -m 'Build master '/%version%
+    - git tag -a %version% -m 'Build master '%version%
     - git push --tags origin master
   configuration: Release
   build:

@@ -53,7 +53,7 @@
       - /dev-.*/
   before_build:
     - nuget restore src/TestAppveyor.sln
-  configuration: Debug
+  configuration: Release
   version: 1.1.0.{build}
   assembly_info:
     patch: true
@@ -66,7 +66,7 @@
       api_key:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
       skip_symbols: true
-      artifact: /.*\.nupkg/
+      artifact: '/.*\.nupkg/'
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL

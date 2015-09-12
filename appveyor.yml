@@ -8,9 +8,6 @@
     publish_nuget_symbols: true
     include_nuget_references: true
     verbosity: minimal
-  artifacts:
-    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-    name: Package DLL
 
 -
   branches:
@@ -33,3 +30,8 @@
   before_build:
   - nuget restore src/TestAppveyor.sln
   configuration: Debug
+
+-
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL

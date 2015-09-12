@@ -27,6 +27,7 @@ branches:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
 
+  only:
     - /dev-.*/
   configuration: Debug
   artifacts:

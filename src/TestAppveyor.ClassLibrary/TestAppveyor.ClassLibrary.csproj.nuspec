@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>d:\Repository\test-appveyor\src\TestAppveyor.ClassLibrary\TestAppveyor.ClassLibrary.csproj</id>
+    <id>TestAppveyorClassLibrary</id>
     <version>1.0.0</version>
     <authors>jonat</authors>
     <owners>jonat</owners>

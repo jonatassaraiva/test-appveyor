@@ -3,19 +3,24 @@
   platform: Any CPU
   environment:
     git_access_token: dc59ddd7135047eca96b1fb44d152431067830c4
-  build:
-    project: src/TestAppveyor.sln
-    publish_nuget: true
-    publish_nuget_symbols: true
-    include_nuget_references: true
-    verbosity: minimal
 -
   branches:
     only:
       - master
   before_build:
     - nuget restore src/TestAppveyor.sln
+  on_success:
+    - git config --global credential.helper store
+    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+    - git tag -a 'v{version}' -m 'build {version}'
+    - git push --tags origin master
   configuration: Release
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    publish_nuget_symbols: true
+    include_nuget_references: true
+    verbosity: minimal
   version: 1.1.0.{build}
   assembly_info:
     patch: true
@@ -39,6 +44,12 @@
   before_build:
     - nuget restore src/TestAppveyor.sln
   configuration: Debug
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    publish_nuget_symbols: true
+    include_nuget_references: true
+    verbosity: minimal
   version: 1.1.1.{build}
   assembly_info:
     patch: true
@@ -56,6 +67,12 @@
   before_build:
     - nuget restore src/TestAppveyor.sln
   configuration: Release
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    publish_nuget_symbols: true
+    include_nuget_references: true
+    verbosity: minimal
   version: 1.1.0.{build}
   assembly_info:
     patch: true
@@ -68,7 +85,7 @@
       api_key:
         secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
       skip_symbols: true
-      artifact: /.*\.nupkg/
+      artifact: /.src\*\.nupkg/
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
       name: Package DLL

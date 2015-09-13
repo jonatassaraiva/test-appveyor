@@ -15,7 +15,7 @@
     - git config --global user.email "jonatas.saraiva@gmail.com"
     - git config --global user.name "jonatassaraiva"
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
-    - ps: git tag -a $($env:appveyor_build_version)
+    - git tag -a TestTag -m 'TestTag Message'
     - git push --tags origin master
   configuration: Release
   build:
@@ -35,9 +35,9 @@
   #    api_key:
   #      secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
   #    artifact: /.*\.nupkg/
-  artifacts:
-    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-    name: Package DLL
+  # artifacts:
+  #  path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+  #  name: Package DLL
 -
   branches:
     only:

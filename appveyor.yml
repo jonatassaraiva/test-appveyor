@@ -30,6 +30,12 @@
     - ps: git push origin --tags --quiet
   configuration: Release
   version: 1.2.0.{build}
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
   build:
       project: src/TestAppveyor.sln
       publish_nuget: true

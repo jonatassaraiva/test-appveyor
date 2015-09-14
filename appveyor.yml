@@ -1,9 +1,22 @@
 -
   os: Visual Studio 2015
   platform: Any CPU
+  skip_tags: true
   environment:
     git_access_token:
-      secure: afIeY3BgOrf78Y5k+TQkXvfwSTIm66R5J4d2dEj/BdbWROkVbqstFgX31vFi4f6J
+      secure: IFYmivmP0SE18+EZ5TcZgkNhQN97h6wFG9uFxoN3VZir4LVdhdqcNkNNY1ozfgnx
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    include_nuget_references: true
+    verbosity: minimal
+
 -
   branches:
     only:
@@ -11,33 +24,22 @@
   before_build:
     - nuget restore src/TestAppveyor.sln
   on_success:
-    - git config --global credential.helper store
-    - git config --global user.email "jonatas.saraiva@gmail.com"
-    - git config --global user.name "jonatassaraiva"
+    - ps: git config --global credential.helper store
+    - ps: git config --global user.email "jonatas.saraiva@gmail.com"
+    - ps: git config --global user.name "jonatassaraiva"
     - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:git_access_token):x-oauth-basic@github.com`n"
-    - git tag -a TestTag -m "TestTag Message"
-    - git push --tags origin master
+    - ps: git tag -a $($env:appveyor_build_version) -m  "Tag build $($env:appveyor_build_version)"
+    - ps: git push origin --tags --quiet
   configuration: Release
-  build:
-    project: src/TestAppveyor.sln
-  #  publish_nuget: true
-  #  include_nuget_references: true
-    verbosity: minimal
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-  #deploy:
-  #  - provider: NuGet
-  #    api_key:
-  #      secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-  #    artifact: /.*\.nupkg/
-  # artifacts:
-  #  path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-  #  name: Package DLL
+  deploy:
+    - provider: NuGet
+      api_key:
+        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+      artifact: /.*\.nupkg/
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 -
   branches:
     only:
@@ -45,18 +47,7 @@
   before_build:
     - nuget restore src/TestAppveyor.sln
   configuration: Debug
-  build:
-    project: src/TestAppveyor.sln
-    publish_nuget: true
-    include_nuget_references: true
-    verbosity: minimal
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
@@ -66,24 +57,8 @@
       - /dev-.*/
   before_build:
     - nuget restore src/TestAppveyor.sln
-  configuration: Release
-  build:
-    project: src/TestAppveyor.sln
-    publish_nuget: true
-    include_nuget_references: true
-    verbosity: minimal
+  configuration: Debug
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-  deploy:
-    - provider: NuGet
-      api_key:
-        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-      artifact: /.*\.nupkg/
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
       name: Package DLL

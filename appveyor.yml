@@ -2,9 +2,6 @@
   os: Visual Studio 2015
   platform: Any CPU
   skip_tags: true
-  environment:
-    git_access_token:
-      secure: gj7QpkIIOipcXefBwD2SCc1ttSUGbGw7EV1awai38Nwi1pajtx2WrKeUxQqntAMA
   build:
     project: src/TestAppveyor.sln
     verbosity: minimal
@@ -16,6 +13,9 @@
   branches:
     only:
       - master
+  environment:
+    git_access_token:
+      secure: gj7QpkIIOipcXefBwD2SCc1ttSUGbGw7EV1awai38Nwi1pajtx2WrKeUxQqntAMA
   before_build:
     - nuget restore src/TestAppveyor.sln
   on_success:

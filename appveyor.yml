@@ -4,17 +4,14 @@
   skip_tags: true
   environment:
     git_access_token:
-      secure: IFYmivmP0SE18+EZ5TcZgkNhQN97h6wFG9uFxoN3VZir4LVdhdqcNkNNY1ozfgnx
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
+      secure: FM9KpVv2tL1pw8HyF4A/FxEFEYFz6sqCm3etts/+0eY12OnvbVelL7RxHjKXmdsA
   build:
     project: src/TestAppveyor.sln
     verbosity: minimal
-
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
+    
 -
   branches:
     only:
@@ -57,9 +54,12 @@
     - nuget restore src/TestAppveyor.sln
   configuration: Debug
   version: 1.2.0.{build}
-  artifacts:
-    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-    name: Package DLL
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
 -
   branches:
     only:
@@ -68,6 +68,9 @@
     - nuget restore src/TestAppveyor.sln
   configuration: Debug
   version: 1.2.0.{build}
-  artifacts:
-    - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-      name: Package DLL
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'

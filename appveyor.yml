@@ -5,9 +5,6 @@
   build:
     project: src/TestAppveyor.sln
     verbosity: minimal
-  artifacts:
-    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-    name: Package DLL
 
 -
   branches:
@@ -43,6 +40,9 @@
       api_key:
         secure: SLcIMNhGrhobqEbCwCud8Hf7aPhdsQl8fLZKMDnGWDn/YSH+m1UODoI7ZSWKDGoi
       artifact: /.*\.nupkg/
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 
 -
   branches:
@@ -72,3 +72,6 @@
     assembly_version: '{version}'
     assembly_file_version: '{version}'
     assembly_informational_version: '{version}'
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL

@@ -5,6 +5,13 @@
   environment:
     git_access_token:
       secure: IFYmivmP0SE18+EZ5TcZgkNhQN97h6wFG9uFxoN3VZir4LVdhdqcNkNNY1ozfgnx
+  assembly_info:
+    patch: true
+    file: '**\AssemblyInfo.*'
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+
 -
   branches:
     only:
@@ -52,12 +59,6 @@
     include_nuget_references: true
     verbosity: minimal
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
@@ -74,12 +75,6 @@
     include_nuget_references: true
     verbosity: minimal
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
       name: Package DLL

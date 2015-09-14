@@ -10,6 +10,6 @@
         <projectUrl>https://github.com/jonatassaraiva/test-appveyor</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Test Nuget in Appveyor IC</description>
-        <copyright>Copyright 2015</copyright>
+        <copyright>Copyright 2015 - Jontas Saraiva</copyright>
     </metadata>
 </package>

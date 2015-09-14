@@ -4,14 +4,14 @@
   skip_tags: true
   environment:
     git_access_token:
-      secure: FM9KpVv2tL1pw8HyF4A/FxEFEYFz6sqCm3etts/+0eY12OnvbVelL7RxHjKXmdsA
+      secure: gj7QpkIIOipcXefBwD2SCc1ttSUGbGw7EV1awai38Nwi1pajtx2WrKeUxQqntAMA
   build:
     project: src/TestAppveyor.sln
     verbosity: minimal
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
     name: Package DLL
-    
+
 -
   branches:
     only:

@@ -11,6 +11,11 @@
     assembly_version: '{version}'
     assembly_file_version: '{version}'
     assembly_informational_version: '{version}'
+  build:
+    project: src/TestAppveyor.sln
+    publish_nuget: true
+    include_nuget_references: true
+    verbosity: minimal
 
 -
   branches:
@@ -26,26 +31,15 @@
     - ps: git tag -a $($env:appveyor_build_version) -m  "Tag build $($env:appveyor_build_version)"
     - ps: git push origin --tags --quiet
   configuration: Release
-  build:
-    project: src/TestAppveyor.sln
-  #  publish_nuget: true
-  #  include_nuget_references: true
-    verbosity: minimal
   version: 1.2.0.{build}
-  assembly_info:
-    patch: true
-    file: '**\AssemblyInfo.*'
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-  #deploy:
-  #  - provider: NuGet
-  #    api_key:
-  #      secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
-  #    artifact: /.*\.nupkg/
-  # artifacts:
-  #  path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
-  #  name: Package DLL
+  deploy:
+    - provider: NuGet
+      api_key:
+        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+      artifact: /.*\.nupkg/
+  artifacts:
+    path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
+    name: Package DLL
 -
   branches:
     only:
@@ -53,11 +47,6 @@
   before_build:
     - nuget restore src/TestAppveyor.sln
   configuration: Debug
-  build:
-    project: src/TestAppveyor.sln
-    publish_nuget: true
-    include_nuget_references: true
-    verbosity: minimal
   version: 1.2.0.{build}
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
@@ -68,12 +57,7 @@
       - /dev-.*/
   before_build:
     - nuget restore src/TestAppveyor.sln
-  configuration: Release
-  build:
-    project: src/TestAppveyor.sln
-    publish_nuget: true
-    include_nuget_references: true
-    verbosity: minimal
+  configuration: Debug
   version: 1.2.0.{build}
   artifacts:
     - path: src\TestAppveyor.ClassLibrary\bin\$(configuration)

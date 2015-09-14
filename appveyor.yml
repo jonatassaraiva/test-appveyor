@@ -38,7 +38,7 @@
   deploy:
     - provider: NuGet
       api_key:
-        secure: OvKqqdbyuSUeACcmmoHgSyrt0hzH+2pUnH3GJl+hhdu7ucCQf8cYxQ+fkVhwrhz6
+        secure: SLcIMNhGrhobqEbCwCud8Hf7aPhdsQl8fLZKMDnGWDn/YSH+m1UODoI7ZSWKDGoi
       artifact: /.*\.nupkg/
   artifacts:
     path: src\TestAppveyor.ClassLibrary\bin\$(configuration)
